@@ -36,8 +36,12 @@
    <!-- Solo dopo esegue il codice (prima non andava, non toccare altrimenti non funziona più) -->
     <script>
         let b = new Billy();
+        let count = 0;
         let interval = setInterval(() => {
-
+            count++;
+            if (count == 10){
+                clearInterval(interval);
+            }
             let message = b.StyledMessage();
             document.body.insertAdjacentHTML("beforeend",message);
 
