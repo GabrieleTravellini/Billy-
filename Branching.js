@@ -1,175 +1,156 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branching Robotica ed Etica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branching Robotica ed Etica</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 850px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #eef3f7;
-            font-size: 19px; /* TESTO PIÙ GRANDE */
-        }
+<style>
+/* ===================== Body e tipografia ===================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #d9d3ca; /* grigio */
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
 
-        h1 {
-            text-align: center;
-            font-size: 28px;
-        }
+main {
+    max-width: 850px;
+    width: 95%;
+    padding: 30px;
+}
 
-        #scenario {
-            padding: 25px;
-            background-color: #fff;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+h1 {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 200;  /* extra-light */
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #91371c, #814910, #272320);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: gradientShift 5s ease infinite, fadeInUp 1.5s ease forwards;
+    opacity: 0; /* iniziale per fade-in */
+}
 
-        .scenario-image {
-            width: 70%;           /* IMMAGINE PIÙ PICCOLA */
-            display: block;
-            margin: 20px auto;    /* CENTRATA */
-            border-radius: 12px;
-        }
+/* Animazione gradient che scorre */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-        #choices {
-            text-align: center;   /* BOTTONI CENTRATI */
-        }
+/* Animazione fade-in con movimento verso l’alto */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
-        .choice-button {
-            margin: 12px auto;
-            padding: 12px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            background-color: #007BFF;
-            color: white;
-            cursor: pointer;
-            display: block;        /* NECESSARIO PER CENTRARLI */
-            width: 70%;            /* PIÙ ORDINATI VISIVAMENTE */
-            max-width: 350px;
-        }
 
-        .choice-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+/* ===================== Scenario ===================== */
+#scenario {
+    background-color: #f5d1b2; /* rosino */
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#scenario:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.scenario-image {
+    width: 70%;
+    max-width: 600px;
+    display: block;
+    margin: 25px auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* ===================== Scelte ===================== */
+#choices {
+    text-align: center;
+}
+
+.choice-button {
+    margin: 16px auto;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ea7a57, #f6a24c); /* gradient rosso-arancione */
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: 70%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.choice-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ===================== Fine percorso ===================== */
+#choices p {
+    font-style: italic;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* ===================== Link immagine responsiva ===================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
 </head>
 
 <body>
-
+<main>
 <h1>Vivere con i Robot - Scelte Etiche</h1>
 
 <div id="scenario"></div>
 <div id="choices"></div>
 
 <script>
-// ==============================
-// SCENARI CON IMMAGINI
-// ==============================
 const nodes = {
-    "start": {
-        text: "Sei un cittadino del futuro in cui i robot sono parte della vita quotidiana. Ti viene consegnato un robot domestico avanzato. Cosa fai?",
-        image: "imm2.png",
-        choices: [
-            {text: "Lo tratti come un amico", next: "friend"},
-            {text: "Lo tratti solo come uno strumento", next: "tool"}
-        ]
-    },
-
-    "friend": {
-        text: "Il robot risponde ai tuoi stimoli emotivi e sembra capire i tuoi stati d’animo. Cosa scegli di fare?",
-        image: "imm1.png",
-        choices: [
-            {text: "Condividi esperienze emotive con lui", next: "emotional"},
-            {text: "Mantieni una distanza emotiva, ma lo usi per compagnia", next: "companionship"}
-        ]
-    },
-
-    "tool": {
-        text: "Usi il robot solo per compiti pratici. Cosa scegli di fare?",
-        image: "imm6.png",
-        choices: [
-            {text: "Programmi comportamenti sociali per renderlo più efficiente", next: "programmed"},
-            {text: "Mantieni il robot freddo e funzionale", next: "cold"},
-            {text: "Usi il robot in modo etico e responsabile", next: "ethical_use"}
-        ]
-    },
-
-    "emotional": {
-        text: "Le emozioni del robot sembrano reali. Inizi a sentirti legato a lui come a un vero amico. Continuare a trattarlo come amico può creare confusione emotiva e dipendenza. Cosa fai?",
-        image: "imm3.png",
-        choices: [
-            {text: "Ignora e continui a considerarlo amico", next: "risk"},
-            {text: "Rifletti sulla simulazione emotiva e limiti l'attaccamento", next: "balanced"},
-            {text: "Coinvolgilo in decisioni personali", next: "deep_emotion"}
-        ]
-    },
-
-    "companionship": {
-        text: "Il robot ti accompagna in alcune attività quotidiane senza creare legami profondi. Mantieni l'equilibrio tra umano e macchina.<br><br><b>Riflessione finale:</b> Scegliendo una compagnia moderata, mantieni un equilibrio tra utilità e presenza sociale del robot. Questo finale mostra come la tecnologia possa supportare il benessere umano senza sostituire le relazioni reali.",
-        image: "imm6.png",
-        choices: []
-    },
-
-    "programmed": {
-        text: "Il robot diventa molto realistico e interattivo. Alcune persone iniziano a legarsi emotivamente. Devi riflettere sulla responsabilità etica.<br><br><b>Riflessione finale:</b> Programmare un robot per essere più 'sociale' avvicina i confini tra macchina e persona e solleva questioni etiche sulla manipolazione emotiva.",
-        image: "imm3.png",
-        choices: []
-    },
-
-    "cold": {
-        text: "Il robot resta uno strumento. Sicurezza e chiarezza di ruolo, ma perdita di opportunità sociali e creative.<br><br><b>Riflessione finale:</b> Mantenere i robot come strumenti garantisce stabilità, ma limita l’evoluzione sociale e creativa della tecnologia.",
-        image: "imm6.png",
-        choices: []
-    },
-
-    "risk": {
-        text: "Conseguenze: rischio di confusione emotiva, dipendenza e critiche sociali. La responsabilità è tua.<br><br><b>Riflessione finale:</b> Dipendere emotivamente da robot simulati può creare isolamento sociale. La tecnologia non deve sostituire i legami umani.",
-        image: "imm4.png",
-        choices: []
-    },
-
-    "balanced": {
-        text: "Conseguenze: equilibrio emotivo e comprensione critica della tecnologia.<br><br><b>Riflessione finale:</b> Riconoscere che le emozioni del robot sono simulate permette di convivere con la tecnologia senza perdere identità e lucidità.",
-        image: "image5.jpg",
-        choices: []
-    },
-
-    "deep_emotion": {
-        text: "Coinvolgere il robot nelle tue scelte personali aumenta il legame, ma può confondere i confini tra umano e macchina.<br><br><b>Riflessione finale:</b> Usare i robot come consulenti emotivi può essere utile, ma occorre mantenere autonomia e consapevolezza.",
-        image: "imm5.png",
-        choices: []
-    },
-
-    "ethical_use": {
-        text: "Mantieni il robot come strumento pratico ma sempre rispettando limiti etici. Promuovi sicurezza e correttezza.<br><br><b>Riflessione finale:</b> Usare la tecnologia responsabilmente assicura benefici senza rischi sociali o morali.",
-        image: "imm7.png",
-        choices: []
-    }
+    "start": { text: "Sei un cittadino del futuro in cui i robot sono parte della vita quotidiana. Ti viene consegnato un robot domestico avanzato. Cosa fai?", image: "imm2.png", choices: [ {text: "Lo tratti come un amico", next: "friend"}, {text: "Lo tratti solo come uno strumento", next: "tool"} ] },
+    "friend": { text: "Il robot risponde ai tuoi stimoli emotivi e sembra capire i tuoi stati d’animo. Cosa scegli di fare?", image: "imm1.png", choices: [ {text: "Condividi esperienze emotive con lui", next: "emotional"}, {text: "Mantieni una distanza emotiva, ma lo usi per compagnia", next: "companionship"} ] },
+    "tool": { text: "Usi il robot solo per compiti pratici. Cosa scegli di fare?", image: "imm6.png", choices: [ {text: "Programmi comportamenti sociali per renderlo più efficiente", next: "programmed"}, {text: "Mantieni il robot freddo e funzionale", next: "cold"}, {text: "Usi il robot in modo etico e responsabile", next: "ethical_use"} ] },
+    "emotional": { text: "Le emozioni del robot sembrano reali. Inizi a sentirti legato a lui come a un vero amico. Continuare a trattarlo come amico può creare confusione emotiva e dipendenza. Cosa fai?", image: "imm3.png", choices: [ {text: "Ignora e continui a considerarlo amico", next: "risk"}, {text: "Rifletti sulla simulazione emotiva e limiti l'attaccamento", next: "balanced"}, {text: "Coinvolgilo in decisioni personali", next: "deep_emotion"} ] },
+    "companionship": { text: "Il robot ti accompagna in alcune attività quotidiane senza creare legami profondi. Mantieni l'equilibrio tra umano e macchina.<br><br><b>Riflessione finale:</b> Scegliendo una compagnia moderata, mantieni un equilibrio tra utilità e presenza sociale del robot. Questo finale mostra come la tecnologia possa supportare il benessere umano senza sostituire le relazioni reali.", image: "imm6.png", choices: [] },
+    "programmed": { text: "Il robot diventa molto realistico e interattivo. Alcune persone iniziano a legarsi emotivamente. Devi riflettere sulla responsabilità etica.<br><br><b>Riflessione finale:</b> Programmare un robot per essere più 'sociale' avvicina i confini tra macchina e persona e solleva questioni etiche sulla manipolazione emotiva.", image: "imm3.png", choices: [] },
+    "cold": { text: "Il robot resta uno strumento. Sicurezza e chiarezza di ruolo, ma perdita di opportunità sociali e creative.<br><br><b>Riflessione finale:</b> Mantenere i robot come strumenti garantisce stabilità, ma limita l’evoluzione sociale e creativa della tecnologia.", image: "imm6.png", choices: [] },
+    "risk": { text: "Conseguenze: rischio di confusione emotiva, dipendenza e critiche sociali. La responsabilità è tua.<br><br><b>Riflessione finale:</b> Dipendere emotivamente da robot simulati può creare isolamento sociale. La tecnologia non deve sostituire i legami umani.", image: "imm4.png", choices: [] },
+    "balanced": { text: "Conseguenze: equilibrio emotivo e comprensione critica della tecnologia.<br><br><b>Riflessione finale:</b> Riconoscere che le emozioni del robot sono simulate permette di convivere con la tecnologia senza perdere identità e lucidità.", image: "image5.jpg", choices: [] },
+    "deep_emotion": { text: "Coinvolgere il robot nelle tue scelte personali aumenta il legame, ma può confondere i confini tra umano e macchina.<br><br><b>Riflessione finale:</b> Usare i robot come consulenti emotivi può essere utile, ma occorre mantenere autonomia e consapevolezza.", image: "imm5.png", choices: [] },
+    "ethical_use": { text: "Mantieni il robot come strumento pratico ma sempre rispettando limiti etici. Promuovi sicurezza e correttezza.<br><br><b>Riflessione finale:</b> Usare la tecnologia responsabilmente assicura benefici senza rischi sociali o morali.", image: "imm7.png", choices: [] }
 };
-
-// ==============================
-// FUNZIONI DI GESTIONE
-// ==============================
 
 const scenarioDiv = document.getElementById("scenario");
 const choicesDiv = document.getElementById("choices");
 
 function showNode(key) {
     const node = nodes[key];
-
-    scenarioDiv.innerHTML = `
-        <p>${node.text}</p>
-        <img src="${node.image}" class="scenario-image">
-    `;
-
+    scenarioDiv.innerHTML = `<p>${node.text}</p><img src="${node.image}" class="scenario-image">`;
     choicesDiv.innerHTML = "";
 
-    if (node.choices.length === 0) {
+    if(node.choices.length === 0) {
         const end = document.createElement("p");
         end.textContent = "Fine del percorso.";
         choicesDiv.appendChild(end);
@@ -188,5 +169,6 @@ function showNode(key) {
 showNode("start");
 </script>
 
+</main>
 </body>
 </html>
