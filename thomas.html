@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etica della Robotica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #ea7a57;
+            --orange: #f6a24c;
+            --pink: #f5d1b2;
+            --grey: #d9d3ca;
+            --dark: #2c2c2c;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: var(--grey);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--red);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--red);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--orange);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--orange);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        ul,
+        ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .card {
+            background-color: var(--pink);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .highlight-box {
+            background-color: var(--grey);
+            padding: 1.5rem;
+            border-left: 4px solid var(--red);
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(234, 122, 87, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(234, 122, 87, 0.4);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, var(--pink) 0%, var(--grey) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--red);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Etica della Robotica</h1>
+        <p>Esplorando le sfide morali, sociali e legali dell'intelligenza artificiale e della robotica</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Introduzione</a></li>
+            <li><a href="#bias">Bias Algoritmici</a></li>
+            <li><a href="#compas">Giustizia</a></li>
+            <li><a href="#medicina">Medicina</a></li>
+            <li><a href="#lavoro">Lavoro</a></li>
+            <li><a href="#trasparenza">Trasparenza</a></li>
+            <li><a href="#dilemmi">Dilemmi Etici</a></li>
+            <li><a href="#regolamentazione">Normative</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="intro">
+            <h2>Roboetica: Oltre la Tecnologia</h2>
+            <p>La robotica non è solo una questione tecnologica: coinvolge profondamente aspetti antropologici,
+                sociologici e psicologici. È fondamentale sviluppare una riflessione etica sulle tecnologie emergenti
+                per garantire che servano davvero il bene comune.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Roboetica</h3>
+                    <p>Si occupa della progettazione e produzione di robot a beneficio dell'umanità, assicurando che lo
+                        sviluppo tecnologico rispetti valori umani fondamentali.</p>
+                </div>
+                <div class="card">
+                    <h3>Etica delle Macchine</h3>
+                    <p>Analizza l'autonomia decisionale dei robot e la correttezza delle loro scelte nei contesti
+                        sociali, interrogandosi su come rendere le macchine "moralmente responsabili".</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Questioni Fondamentali</h4>
+                <ul>
+                    <li><strong>Responsabilità:</strong> Di chi è la colpa se un robot commette un errore?</li>
+                    <li><strong>Privacy:</strong> Chi controlla i dati raccolti dai robot domestici e sanitari?</li>
+                    <li><strong>Inclusione:</strong> Come evitare che la robotica aggravi le disuguaglianze sociali?
+                    </li>
+                    <li><strong>Sostenibilità:</strong> Quale impatto ambientale hanno produzione e smaltimento?</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="bias">
+            <h2>Bias Algoritmici: Il Paradosso dei Pregiudizi Nascosti</h2>
+            <p>I sistemi di intelligenza artificiale dovrebbero essere imparziali, ma in realtà ereditano e amplificano
+                i pregiudizi presenti nei dati storici. Il problema è che questi bias sono invisibili, incorporati in
+                enormi dataset di addestramento.</p>
+
+            <div class="case-study">
+                <h3>Caso Amazon HR (2014-2017)</h3>
+                <p>Amazon sviluppò un algoritmo per automatizzare il reclutamento. Poiché i dati storici mostravano una
+                    predominanza di assunzioni maschili, l'IA imparò a preferire candidati uomini.</p>
+                <p><span class="stat">30%</span></p>
+                <p>Le candidature femminili venivano scartate fino al 30% in più. Nel 2017 il progetto fu abbandonato
+                    perché il bias non era correggibile.</p>
+            </div>
+
+            <h3>Come Nasce il Bias</h3>
+            <ol>
+                <li>I dati storici riflettono disuguaglianze sociali esistenti</li>
+                <li>L'algoritmo confonde correlazione storica con causalità legittima</li>
+                <li>Il bias viene replicato e spesso amplificato nelle decisioni automatizzate</li>
+            </ol>
+        </section>
+
+        <section id="compas">
+            <h2>Il Caso COMPAS: Giustizia Artificiale Razzista</h2>
+            <p>COMPAS è un software usato dalle corti americane per stimare il rischio di recidiva dei condannati. Nel
+                2016, un'inchiesta di ProPublica ha rivelato gravi bias razziali nel sistema.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>Falsi Positivi</h4>
+                    <p><span class="stat">45%</span></p>
+                    <p>Imputati neri classificati erroneamente ad alto rischio (contro il 23% dei bianchi)</p>
+                </div>
+                <div class="card">
+                    <h4>Falsi Negativi</h4>
+                    <p>Imputati bianchi considerati a basso rischio ricidivavano più del previsto, mettendo a rischio la
+                        sicurezza pubblica</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>La Causa del Problema</h4>
+                <p>I dati di addestramento provenivano da decisioni giudiziarie storiche già influenzate da bias
+                    razziali. Uno studio del 2018 ha dimostrato che valutazioni di persone comuni risultarono simili a
+                    quelle di COMPAS: il problema è nei dati, non nella complessità del modello.</p>
+            </div>
+        </section>
+
+        <section id="medicina">
+            <h2>Bias in Medicina: Diagnosi Distorte</h2>
+            <p>Il bias algoritmico in medicina è particolarmente pericoloso perché incide direttamente sulla salute e
+                sulla vita dei pazienti.</p>
+
+            <h3>Esempi Critici</h3>
+            <div class="card">
+                <h4>Diagnosi Cardiaca e Differenze di Genere</h4>
+                <p>Algoritmi addestrati prevalentemente su pazienti maschi bianchi producono diagnosi meno accurate per
+                    donne e minoranze etniche.</p>
+            </div>
+
+            <div class="card">
+                <h4>Riconoscimento del Cancro della Pelle</h4>
+                <p>Sistemi addestrati su immagini di pelle chiara sottostimano la presenza di tumori su pelle scura,
+                    ritardando trattamenti salvavita.</p>
+            </div>
+
+            <div class="card">
+                <h4>Saturimetri e Ossimetria</h4>
+                <p>Durante la pandemia COVID-19, i saturimetri si sono rivelati meno accurati su pelle scura, causando
+                    ritardi nel trattamento di pazienti critici.</p>
+            </div>
+
+            <div class="card">
+                <h4>Allocazione delle Risorse Sanitarie</h4>
+                <p>Un algoritmo ospedaliero penalizzava i pazienti neri perché usava la "spesa sanitaria storica" come
+                    indicatore della gravità della malattia, ignorando disparità nell'accesso alle cure.</p>
+            </div>
+        </section>
+
+        <section id="lavoro">
+            <h2>Gender Bias nel Lavoro e nella Finanza</h2>
+
+            <h3>Selezione del Personale</h3>
+            <div class="grid">
+                <div class="card">
+                    <p><span class="stat">75%</span></p>
+                    <p>Aziende che usano IA nei processi di selezione</p>
+                </div>
+                <div class="card">
+                    <p><span class="stat">80%</span></p>
+                    <p>CV filtrati da sistemi automatizzati</p>
+                </div>
+                <div class="card">
+                    <p><span class="stat">-30%</span></p>
+                    <p>Probabilità per le donne di superare le preselezioni</p>
+                </div>
+            </div>
+
+            <h3>Finanza e Credito</h3>
+            <ul>
+                <li>Le aziende guidate da donne accedono al credito con una probabilità inferiore del 15-20%</li>
+                <li>Le donne ricevono prestiti per importi mediamente inferiori del 25%</li>
+                <li>I sistemi di scoring creditizio replicano discriminazioni storiche</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Il Ciclo che si Autoalimenta</h4>
+                <p>Dati storici → le donne sono considerate più "rischiose" → minore accesso al credito → nuovi dati che
+                    confermano il bias → il ciclo continua.</p>
+            </div>
+        </section>
+
+        <section id="trasparenza">
+            <h2>Il Problema della "Scatola Nera"</h2>
+            <p>Molti algoritmi, soprattutto le reti neurali profonde, operano elaborando miliardi di parametri. Il
+                processo interno non è interpretabile nemmeno dai loro creatori.</p>
+
+            <h3>Esigenza di Trasparenza</h3>
+            <p>Secondo il GDPR (Art. 22), un utente deve poter conoscere i fattori che portano a una decisione
+                automatizzata, come il rifiuto di un mutuo o di una candidatura lavorativa.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <h4>Spiegabilità</h4>
+                    <p>Capire <em>perché</em> è stata presa una decisione specifica</p>
+                </div>
+                <div class="card">
+                    <h4>Interpretabilità</h4>
+                    <p>Capire <em>come</em> funziona internamente il modello</p>
+                </div>
+            </div>
+
+            <p>Entrambe sono essenziali per costruire fiducia ed equità nei sistemi automatizzati.</p>
+        </section>
+
+        <section id="dilemmi">
+            <h2>Dilemmi Etici: La Moralità Non Può Essere Programmata</h2>
+
+            <h3>Il Problema del Trasferimento di Responsabilità</h3>
+            <p>Non è possibile programmare una vera decisione morale: l'IA utilizza funzioni di utilità matematiche, non
+                principi etici filosofici.</p>
+
+            <div class="case-study">
+                <h3>Esempio: Auto Autonome e Incidenti Inevitabili</h3>
+                <ul>
+                    <li>Chi scegliere di sacrificare in caso di incidente inevitabile?</li>
+                    <li>Quale etica adottare: utilitarista, deontologica, delle virtù?</li>
+                    <li>Chi ha l'autorità morale di programmare queste scelte?</li>
+                    <li>Le decisioni devono essere le stesse in tutte le culture?</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Conclusione</h4>
+                <p>Le decisioni morali complesse devono restare in mano agli esseri umani. L'IA deve supportare il
+                    processo decisionale, non sostituirlo completamente.</p>
+            </div>
+
+            <h3>Responsabilità nel Sistema Giudiziario</h3>
+            <p>Chi risponde quando l'algoritmo sbaglia?</p>
+
+            <h4>Legge Italiana 132/2025</h4>
+            <ul>
+                <li>Vietato trasferire la responsabilità alla macchina</li>
+                <li>Necessario un responsabile umano identificabile</li>
+                <li>Non si può dire "l'ha deciso l'algoritmo"</li>
+            </ul>
+
+            <div class="card">
+                <h4>Casi Italiani del 2025</h4>
+                <p>I Tribunali di Torino e Latina hanno sanzionato avvocati per utilizzo non verificato di IA che aveva
+                    generato contenuti errati. Chi usa l'IA è responsabile come se fosse uno strumento proprio.</p>
+            </div>
+
+            <h3>Equità vs Accuratezza: Un Dilemma Aperto</h3>
+            <p>Aumentare l'equità spesso riduce l'accuratezza e viceversa. Un'IA di assunzione accurata al 95% ma con
+                bias di genere al 40% deve sacrificare performance per essere equa? Non esiste una soluzione universale:
+                il bilanciamento va deciso caso per caso.</p>
+        </section>
+
+        <section id="regolamentazione">
+            <h2>Soluzioni e Regolamentazione Globale</h2>
+
+            <h3>EU AI Act (2024/1689)</h3>
+            <div class="card">
+                <ul>
+                    <li>Classificazione dei sistemi per livello di rischio</li>
+                    <li>Audit obbligatori per sistemi ad alto rischio</li>
+                    <li>Obblighi di trasparenza, spiegabilità e controllo umano</li>
+                    <li>Sanzioni severe per violazioni</li>
+                </ul>
+            </div>
+
+            <h3>Legge Italiana 132/2025</h3>
+            <div class="card">
+                <ul>
+                    <li>Disciplina nazionale organica sull'IA</li>
+                    <li>Rafforza accountability e trasparenza</li>
+                    <li>Protegge da errori e "allucinazioni" dei modelli</li>
+                    <li>Definisce responsabilità chiare</li>
+                </ul>
+            </div>
+
+            <h3>Strumenti Tecnici Emergenti</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>XAI</h4>
+                    <p>Explainable AI - sistemi progettati per essere interpretabili</p>
+                </div>
+                <div class="card">
+                    <h4>Fairness Auditing</h4>
+                    <p>Verifica sistematica di equità e bias negli algoritmi</p>
+                </div>
+                <div class="card">
+                    <h4>Debiasing</h4>
+                    <p>Tecniche per ridurre i pregiudizi nei dati e negli algoritmi</p>
+                </div>
+            </div>
+
+            <h3>Altri Temi Critici</h3>
+
+            <div class="highlight-box">
+                <h4>Sorveglianza e Controllo Sociale</h4>
+                <p>Robot per videosorveglianza e tracciamento comportamentale sollevano preoccupazioni sull'erosione
+                    delle libertà individuali e sul rischio di una società ipercontrollata.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Impatto sull'Occupazione</h4>
+                <p>L'automazione sostituisce lavori ripetitivi e manuali, con rischio di aumento della disuguaglianza. È
+                    fondamentale gestire la transizione con formazione e nuove opportunità.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Algoritmi nell'Educazione</h4>
+                <p>Un algoritmo che etichetta uno studente come "a basso potenziale" può perpetuare disuguaglianze
+                    socioeconomiche. L'IA deve essere uno strumento a servizio dell'educazione, non un sostituto della
+                    responsabilità dell'insegnante.</p>
+            </div>
+        </section>
+
+        <section>
+            <div style="text-align: center; padding: 3rem 0;">
+                <h2 style="border: none; margin-bottom: 1.5rem;">Riflessione Finale</h2>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">La robotica e l'intelligenza artificiale
+                    possono essere strumenti straordinari per il progresso umano, ma solo se guidate da principi etici
+                    solidi, trasparenza e una costante vigilanza sui loro impatti sociali.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Etica della Robotica. Un progetto per la consapevolezza tecnologica.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Fonti: La Chiave di Sophia, CNOS-FAP, UniPI,
+            Analysis Online</p>
+    </footer>
+</body>
+
+</html>
