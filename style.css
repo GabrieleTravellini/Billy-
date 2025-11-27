@@ -6,10 +6,10 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #fff5f0 0%, #fdf8f6 100%);
     min-height: 100vh;
     padding: 40px 20px;
-    color: #1d1d1f;
+    color: #3d2921;
 }
 
 .container {
@@ -28,7 +28,7 @@ body {
     font-weight: 700;
     letter-spacing: -1.5px;
     margin-bottom: 15px;
-    background: linear-gradient(135deg, #000 0%, #555 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -36,7 +36,7 @@ body {
 
 .header p {
     font-size: 1.2rem;
-    color: #666;
+    color: #8b5a3c;
     font-weight: 300;
     letter-spacing: 0.5px;
 }
@@ -55,22 +55,22 @@ body {
     align-items: center;
     justify-content: center;
     padding: 60px 40px;
-    background: white;
+    background: #fdf8f6;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 40px rgba(234, 122, 87, 0.08);
     animation: fadeInLeft 0.8s ease-out;
     transition: all 0.3s ease;
 }
 
 .billy-section:hover {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 60px rgba(234, 122, 87, 0.15);
     transform: translateY(-5px);
 }
 
 .billy-avatar {
     width: 180px;
     height: 180px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ body {
     color: white;
     font-size: 80px;
     margin-bottom: 30px;
-    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 20px 50px rgba(234, 122, 87, 0.4);
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -89,7 +89,7 @@ body {
 
 .status-label {
     font-size: 0.9rem;
-    color: #999;
+    color: #a67d6e;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 10px;
@@ -98,7 +98,7 @@ body {
 .level-display {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -107,7 +107,7 @@ body {
 .level-bar {
     width: 100%;
     height: 8px;
-    background: #e8e8e8;
+    background: #e6d4c8;
     border-radius: 4px;
     margin-top: 15px;
     overflow: hidden;
@@ -115,7 +115,7 @@ body {
 
 .level-fill {
     height: 100%;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(90deg, #ea7a57 0%, #f6a24c 100%);
     width: 0%;
     transition: width 0.6s ease;
     border-radius: 4px;
@@ -129,7 +129,7 @@ body {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 30px;
-    color: #1d1d1f;
+    color: #3d2921;
 }
 
 .questions-grid {
@@ -141,25 +141,25 @@ body {
 
 .question-btn {
     padding: 20px 25px;
-    background: white;
-    border: 2px solid #e8e8e8;
+    background: #fdf8f6;
+    border: 2px solid #e6d4c8;
     border-radius: 12px;
     font-size: 1.05rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
-    color: #1d1d1f;
+    color: #3d2921;
     font-family: inherit;
     position: relative;
     overflow: hidden;
 }
 
 .question-btn:hover {
-    border-color: #667eea;
-    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    border-color: #ea7a57;
+    background: linear-gradient(135deg, #fff5f0 0%, #fdf8f6 100%);
     transform: translateX(5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 30px rgba(234, 122, 87, 0.2);
 }
 
 .question-btn:active {
@@ -172,17 +172,17 @@ body {
 }
 
 .question-btn.completed:hover {
-    border-color: #e8e8e8;
-    background: white;
+    border-color: #e6d4c8;
+    background: #fdf8f6;
     transform: translateX(0);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(217, 211, 202, 0.3);
 }
 
 .question-number {
     display: inline-block;
     width: 28px;
     height: 28px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     color: white;
     border-radius: 50%;
     text-align: center;
@@ -202,9 +202,9 @@ body {
 }
 
 .conversation-container {
-    background: white;
+    background: #fdf8f6;
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 40px rgba(234, 122, 87, 0.08);
     overflow: hidden;
     max-height: 600px;
     overflow-y: auto;
@@ -212,14 +212,14 @@ body {
 
 .conversation-header {
     padding: 30px 30px 20px;
-    border-bottom: 1px solid #e8e8e8;
-    background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+    border-bottom: 1px solid #e6d4c8;
+    background: linear-gradient(135deg, #fff5f0 0%, #fdf8f6 100%);
 }
 
 .conversation-header h3 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #1d1d1f;
+    color: #3d2921;
 }
 
 .conversation-log {
@@ -253,16 +253,16 @@ body {
 }
 
 .message-question {
-    background: linear-gradient(135deg, #fff5e1 0%, #ffe8b6 100%);
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe8db 100%);
     padding: 20px;
     border-radius: 12px;
-    border-left: 4px solid #ffc107;
+    border-left: 4px solid #ea7a57;
     margin-bottom: 12px;
 }
 
 .message-question .label {
     font-size: 0.85rem;
-    color: #999;
+    color: #a67d6e;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
@@ -271,43 +271,43 @@ body {
 
 .message-question p {
     font-size: 1rem;
-    color: #1d1d1f;
+    color: #3d2921;
     font-weight: 500;
 }
 
 .message-answer {
     padding: 20px;
     border-radius: 12px;
-    border-left: 4px solid #667eea;
-    background: linear-gradient(135deg, #f0f4ff 0%, #f8f9ff 100%);
+    border-left: 4px solid #ea7a57;
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe8db 100%);
     transition: all 0.3s ease;
 }
 
 .message-answer.level-1 {
-    border-left-color: #ffc107;
-    background: linear-gradient(135deg, #fff8f0 0%, #fff5e1 100%);
+    border-left-color: #f6a24c;
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe8db 100%);
 }
 
 .message-answer.level-2 {
-    border-left-color: #ff9800;
-    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-left-color: #f6a24c;
+    background: linear-gradient(135deg, #ffebd4 0%, #ffd9bb 100%);
 }
 
 .message-answer.level-3 {
-    border-left-color: #f44336;
-    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-left-color: #ea7a57;
+    background: linear-gradient(135deg, #ffd4bf 0%, #ffb89d 100%);
     animation: glitch 0.3s ease-in-out infinite;
 }
 
 .message-answer.level-4 {
-    border-left-color: #000;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-left-color: #8b5a3c;
+    background: linear-gradient(135deg, #6b4a36 0%, #543b2d 100%);
     animation: glitch 0.2s ease-in-out infinite;
 }
 
 .message-answer .label {
     font-size: 0.85rem;
-    color: #999;
+    color: #8b5a3c;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
@@ -321,7 +321,7 @@ body {
 .message-answer p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #1d1d1f;
+    color: #3d2921;
     font-style: italic;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -355,7 +355,7 @@ body {
 
 .message-level {
     font-size: 0.8rem;
-    color: #999;
+    color: #8b5a3c;
     margin-top: 10px;
     font-weight: 500;
 }
@@ -367,7 +367,7 @@ body {
 
 .welcome-message {
     padding: 25px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     border-radius: 12px;
     color: white;
     text-align: center;
@@ -394,8 +394,8 @@ body {
 
 .reset-btn {
     padding: 12px 30px;
-    background: white;
-    border: 2px solid #e8e8e8;
+    background: #fdf8f6;
+    border: 2px solid #e6d4c8;
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 600;
@@ -408,9 +408,9 @@ body {
 }
 
 .reset-btn:hover {
-    border-color: #f44336;
-    color: #f44336;
-    background: #fff5f5;
+    border-color: #ea7a57;
+    color: #ea7a57;
+    background: #fff5f0;
 }
 
 .reset-btn:active {
@@ -490,10 +490,11 @@ body {
 }
 
 .conversation-container::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%);
     border-radius: 10px;
 }
 
 .conversation-container::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #693a91 100%);
+    background: linear-gradient(135deg, #d96a4a 0%, #e6933f 100%);
 }
+
