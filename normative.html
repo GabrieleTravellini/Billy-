@@ -6,9 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roboetica normative</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+        :root {
+            --color-primary: #ea7a57;
+            --color-secondary: #f6a24c;
+            --color-light: #f5d1b2;
+            --color-neutral: #d9d3ca;
+        }
+
+
+
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+
+        .rounded {
+            border-radius: 12px;
+        }
+
+
+        .custom-header {
+            background-color: var(--color-primary);
+            border-radius: 0 0 12px 12px;
+        }
+
+
+        .nav-link:hover {
+            background-color: var(--color-secondary);
+            color: white !important;
+            border-radius: 8px;
+        }
+
+
+        .custom-card {
+            border-left: 6px solid var(--color-secondary);
+            background-color: white;
+            border-radius: 12px;
+        }
+
+
+        .custom-section {
+            background-color: var(--color-light);
+            border-radius: 12px;
+        }
+
+
+        .custom-footer {
+            background-color: var(--color-neutral);
+            border-radius: 12px 12px 0 0;
+        }
+
+
+        .custom-accent {
+            color: var(--color-primary);
+        }
+
+        a {
+
+            background-color: var(--color-primary);
+        }
+
+        a:hover {
+            background-color: var(--color-primary);
+        }
+    </style>
 </head>
 
-<body class="w3-light-grey">
+<body style="background-color: #f5f5f5;">
     <header class="w3-bar w3-blue w3-padding w3-card-2">
         <nav class="w3-bar-item w3-right">
             <a href="index.html" class="w3-button w3-transparent w3-hover-white w3-text-white">HOME</a>
@@ -19,65 +86,301 @@
         </nav>
     </header>
 
-    <div class="w3-col w3-center">
-        <h1 class="w3-xxlarge">Robotica e Normative</h1>
+    <div class="w3-container w3-center w3-padding-64 w3-margin" style="background-color: #ea7a57; border-radius: 12px;">
+        <h1 class="w3-jumbo" style="font-size: 64px; color: #f5f5f5;"><b>ROBOTICA E NORMATIVE</b></h1>
+        <p class="w3-xlarge w3-margin-bottom" style="color: #f5f5f5;">Regolamentazione e sicurezza nell'era
+            dell'automazione</p>
+
+
+        <div class="w3-center w3-margin-top">
+            <a href="#iso" class="w3-button w3-round-large" style="color: #f5f5f5;">NORMATIVA ISO</a>
+            <a href="#ai-act" class="w3-button w3-round-large" style="color: #f5f5f5;">IN EUROPA</a>
+            <a href="#italia" class="w3-button w3-round-large" style="color: #f5f5f5;">IN ITALIA</a>
+            <a href="#copyright" class="w3-button w3-round-large" style="color: #f5f5f5;">LEGGE SUL COPYRIGHT</a>
+        </div>
+    </div>
+    <div class="w3-container w3-content" style="max-width: 1200px;">
+
+        <!-- Introduzione -->
+        <div class="w3-card custom-card w3-padding-large w3-margin-bottom">
+            <h2 class="custom-accent w3-center"><b>INTRODUZIONE</b></h2>
+            <p class="w3-justify">
+                Il settore della robotica negli ultimi anni ha visto un incredibile processo innovativo non solo
+                all'interno dell'industria e delle fabbriche, ma anche in ambito domestico, medico e militare. È stato
+                quindi necessario regolamentare la costruzione delle macchine e il loro utilizzo per tutelare la salute,
+                la sicurezza e la privacy dei cittadini.
+            </p>
+            <p class="w3-justify">
+                Sono riconosciuti universalmente alcuni standard internazionali di sicurezza da applicare alla
+                progettazione e produzione di robot, al fine di garantire elevata qualità, affidabilità e sicurezza a
+                garanzia non solo dei clienti finali, ma anche dei fornitori e degli utilizzatori. Le soluzioni
+                tecnologiche sono sempre in aggiornamento: non parliamo più di semplici macchine che automatizzano un
+                processo, ma di robot e sistemi capaci di apprendere e collaborare con gli operatori.
+            </p>
+        </div>
     </div>
 
-    <!--introduzione-->
-    <div class="w3-card w3-white w3-padding w3-margin-bottom w3-center">
-        <h2>Introduzione</h2>
-        <p>Il settore della robotica negli ultimi anni ha visto un incredibile processo innovativo non solo all’interno
-            dell’industria e delle fabbriche, ma anche in ambito domestico, medico e militare; quindi, è stato
-            necessario regolamentare la costruzione delle macchine e il loro utilizzo per tutelare la salute, la
-            sicurezza e la privacy dei cittadini.
-            Sempre in maniera più diffusa, sono riconosciuti universalmente alcuni standard internazionali di sicurezza
-            da applicare alla progettazione e produzione di robot fine di garantire elevata qualità, affidabilità e
-            sicurezza a garanzia non solo dei clienti finali, ma anche dei fornitori e degli utilizzatori. È importante
-            comprendere che le soluzioni tecnologiche sono sempre in aggiornamento e non possiamo parlare più di
-            semplici macchine che automatizzano un processo, ma di robot e sistemi capaci di apprendere e collaborare
-            con gli operatori per ottenere un risultato finale.
-            I robot inoltre vengono sempre più utilizzati per scopi sociali(assistenza umana) quindi è necessario che
-            rispettino le norme sociali, cioè regole informali che definiscono cosa è appropriato o inappropriato nei
-            rapporti quotidiani.
+
+    <!--normativa iso-->
+    <div id="iso" class="w3-card custom-card w3-padding-large w3-margin">
+        <h2 class="custom-accent"><b>Norma ISO 10218 - 2025</b></h2>
+        <p class="w3-justify">
+            Tra i principali riferimenti normativi in ambito robotico si colloca la norma ISO 10218, adottata nel
+            2025. Questo standard si compone di due parti e stabilisce requisiti di sicurezza per la progettazione,
+            costruzione e integrazione dei robot industriali. L'obiettivo centrale della normativa consiste nello
+            stabilire requisiti di sicurezza relativi alla progettazione, costruzione e integrazione dei robot
+            industriali negli ambienti lavorativi. La norma prevede inoltre indicazioni specifiche riguardo i
+            dispositivi di protezione e i sistemi di arresto d’emergenza.
         </p>
+
+
+        <div class="custom-section w3-padding w3-margin-bottom">
+            <h3><b>ISO 10218-1</b></h3>
+            <p class="w3-justify"><b>Robot industriali - Requisiti di sicurezza</b> <br>
+                l'obiettivo primario di garantire che i robot industriali siano progettati, costruiti e
+                utilizzati in conformità a elevati standard di sicurezza, minimizzando i rischi per gli
+                operatori umani e l'ambiente lavorativo. Essa costituisce una guida fondamentale per produttori
+                di robot, integratori di sistemi e operatori, volta ad assicurare che le operazioni robotiche
+                nell'ambito industriale rispettino rigorosi criteri di sicurezza.</p>
+            <ul class="w3-ul custom-list">
+                <li class="w3-justify"><b>Campo applicativo:</b> robot per operazioni ripetitive in contesti
+                    industriali
+                    (assemblaggio, saldatura, movimentazione)</li>
+                <li class="w3-justify"><b>Requisiti design e costruzione:</b> requisiti che riguardano la
+                    struttura meccanica,
+                    componenti e
+                    materiali.
+                </li>
+                <li class="w3-justify"><b>Dispositivi di protezione:</b> barriere fisiche, sistemi di controllo
+                    e arresto
+                    d'emergenza per mettere in sicurezza i loughi in cui si lavora con i luoghi</li>
+                <li class="w3-justify"><b>Comunicazione uomo-robot:</b> indicazioni visive/acustiche,
+                    segnalazione errori,
+                    procedure di avvio/arresto</li>
+                <li class="w3-justify"><b>Documentazione:</b> : la norma richiede la disponibilità di
+                    documentazione dettagliata
+                    riguardante la sicurezza del robot, come il manuale di istruzioni, il manuale di
+                    manutenzione, i documenti tecnici e altre informazioni pertinenti. Questi documenti devono
+                    fornire le informazioni necessarie per un corretto utilizzo, manutenzione e riparazione del
+                    robot in modo sicuro.</li>
+            </ul>
+        </div>
+
+        <div class="custom-section w3-padding w3-margin-bottom">
+            <h3><b>ISO 10218-2</b></h3>
+            <p><b>Sistemi robotici integrati</b></p>
+            <p class="w3-justify">Lo scopo della norma è quello di specificare i requisiti di sicurezza
+                per l’integrazione di robot industriali e sistemi robotici industriali.</p>
+            <ul class="w3-ul custom-list">
+                <li class="w3-justify">La progettazione, la fabbricazione, l’installazione, il funzionamento, la
+                    manutenzione e la dismissione del sistema o della cella robotica industriale</li>
+                <li class="w3-justify">Descrizione dei pericoli comuni e le situazioni pericolose che si possono
+                    verificare lavorando con questi dispositivi</li>
+                <li class="w3-justify">Fornisce requisiti per la protezione degli operatori durante tutte le
+                    fasi e la riduzione dei rischi</li>
+            </ul>
+
+        </div>
     </div>
 
-    <div>
 
-    </div>
-    <div class="w3-card w3-white w3-padding w3-margin-bottom w3-center">
-        <h2><b>Norma ISO 10218 - 2025</b></h2>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos perferendis sed earum, labore nisi blanditiis
-            fugiat. Cum vero fugit inventore quaerat! Voluptatibus unde est error asperiores alias labore eos quis.
-        </p>
-    </div>
+    <div id="ai-act" class="w3-container w3-margin-bottom">
+        <h2 class="w3-center custom-accent w3-padding"><b>REGOLAMENTARE L'INTELLIGENZA ARTIFICIALE</b></h2>
 
 
-    <div class="w3-card w3-white w3-padding w3-margin-bottom w3-center">
-        <h3>Risoluzione del Parlamento europeo del 16 febbraio 2017 recante raccomandazioni alla Commissione
-            concernenti norme di diritto civile sulla robotica</h3>
-    </div>
+        <!-- AI Act UE -->
+        <div class="w3-card custom-card w3-padding-large w3-margin-bottom" style="min-height: 400px;">
+            <h3 class="custom-accent"><b>AI Act - Regolamento UE 2024/1689 </b></h3>
+            <p><i>In vigore dal 1° agosto 2024</i></p>
+            <p class="w3-justify">Primo quadro normativo completo a livello UE per regolamentare
+                l'intelligenza artificiale, con approccio basato sul rischio.</p>
 
-    <div class="w3-container w3-white w3-padding">
-
-        <h2>REGOLAMENTARE L'IA</h2>
-        <div class="w3-row-padding">
-
-            <div class="w3-col l6 m6 s12">
-                <div class="w3-card w3-white w3-padding w3-margin-bottom">
-                    <h3>regolamento (UE) 2024/1689</h3>
-                </div>
+            <h4><b>Categorie di rischio:</b></h4>
+            <div class="w3-panel w3-red w3-padding">
+                <b>🚫 Rischio Inaccettabile (VIETATO)</b>
+                <p>Minaccia per sicurezza e diritti fondamentali</p>
+            </div>
+            <div class="w3-panel w3-orange w3-padding">
+                <b>⚠️ Rischio Elevato</b>
+                <p>Settori sensibili: sanità, finanza, trasporti. Obblighi rigorosi prima dell'uso</p>
+            </div>
+            <div class="w3-panel w3-yellow w3-padding">
+                <b>⚡ Rischio Limitato</b>
+                <p>Contenuti audiovisivi e risposte personalizzate</p>
+            </div>
+            <div class="w3-panel w3-green w3-padding">
+                <b>✅ Rischio Minimo</b>
+                <p>Requisiti base di conformità e tutela dati</p>
             </div>
 
-            <div class="w3-col l6 m6 s12">
-                <div class="w3-card w3-white w3-padding w3-margin-bottom">
-                    <h3>altra normativa</h3>
-                </div>
+            <div class="w3-panel custom-section w3-padding">
+                <h4><b>Sistemi AI ad Alto Rischio:</b></h4>
+                <p class="w3-justify">
+                    La Commissione Europea ha avviato una consultazione sull’IA ad alto rischio, dal 6 giugno al
+                    18
+                    luglio 2025. I risultati serviranno da base sia per le linee guida sulla classificazione che
+                    per gli obblighi applicabili lungo tutta la catena del valore dell’AI.
+                    È fondamentale capire e conoscere i livelli di rischio dell’IA per tutelarsi e prestare
+                    attenzione agli strumenti che utilizziamo.
+                    La consultazione sull’AI ad alto rischio segna una tappa fondamentale nell’attuazione
+                    dell’AI Act.
+                    La legge sull'IA garantisce che gli europei possano fidarsi di ciò che l'IA ha da offrire.
+                    La legge sull'IA introduce obblighi specifici di divulgazione per garantire che gli esseri
+                    umani siano informati quando necessario per preservare la fiducia.
+                    Inoltre, i fornitori di IA generativa devono garantire che i contenuti generati dall'IA
+                    siano identificabili e che alcuni contenuti generati dall'IA dovrebbero essere
+                    etichettati in modo chiaro e visibile.
+                    <br>
+                </p>
+                <ul class="custom-list">
+                    <li>Componenti di sicurezza in prodotti UE</li>
+                    <li>Rischi per salute e diritti fondamentali</li>
+                    <li>Settori: istruzione, occupazione, servizi pubblici</li>
+                </ul>
+                <p><b>Requisiti:</b> gestione rischi, trasparenza, supervisione umana, valutazioni di
+                    conformità</p>
+                <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/PDF/?uri=OJ:L_202401689"
+                    class="w3-button w3-round-large">clicca qui per maggiori informazioni</a>
             </div>
 
         </div>
 
+        <!-- Legge italiana -->
+        <div class="w3-card custom-card w3-padding-large w3-margin-bottom" style="min-height: 400px;">
+            <h3 class="custom-accent w3-center"><b>Legge Italiana sull'IA (23 settembre 2025)</b></h3>
+            <p class="w3-justify">Primo quadro normativo nazionale in Europa, in piena coerenza con l'AI Act
+                europeo. Approvata dal Senato il 17 settembre 2025.</p>
+
+            <h4><b>Principi fondamentali su cui si basa la legge:</b></h4>
+            <ul class="w3-ul custom-list">
+                <li>Uso antropocentrico e trasparente dell'IA</li>
+                <li>Sicurezza e innovazione</li>
+                <li>Cybersicurezza e accessibilità</li>
+                <li>Tutela della riservatezza</li>
+                <li>Tracciabilità e responsabilità umana</li>
+            </ul>
+
+            <h4><b>Obiettivi</b></h4>
+            <ul class="w3-ul custom-list">
+                <li class="w3-justify">Definire le regole per l’addestramento, l’uso e la tutela dei dati e dei sistemi
+                    di IA garantendone
+                    la protezione lungo tutto il loro ciclo di vita, con particolare attenzione alla sicurezza
+                    informatica, includendo sanzioni in caso di violazioni </li>
+                <li class="w3-justify"> garantire un utilizzo sicuro e tutelato dell'IA in ambiti come Sanità, Lavoro,
+                    Pubblica Amministrazione, Giustizia, Formazione, Sport
+
+                </li>
+                <li class="w3-justify">Assicurare che le persone con disabilità abbiano pieno accesso ai sistemi di IA
+                    senza
+                    discriminazioni, promuovendo programmi di formazione del personale pubblico e privato, anche con
+                    focus sulle implicazioni etiche, rischi e benefici dell’IA.</li>
+                <li class="w3-justify">
+                    Promuovere programmi di formazione su
+                    implicazioni etiche, rischi e benefici dell'IA, sia a singoli cittadini che a enti pubblici e
+                    privati.
+                </li>
+            </ul>
+
+
+            <h4><b>Sanzioni previste:</b></h4>
+            <div class="w3-panel custom-section w3-padding">
+                <ul class="w3-ul custom-list">
+                    <li><b>Penale</b> Reclusione 2-7 anni + multa €25.000-6.000.000 per violazioni gravi</li>
+                    <li><b>Amministrativa</b>violazioni in materia di intermediazione finanziaria e altri settori
+                        regolati, con pene detentive e multe proporzionate alla gravità del fatto.
+                    </li>
+                    <li>
+                        <b>Responsabilità</b> previste misure di responsabilità e sanzioni anche per enti o persone che
+                        omettono di adottare misure di sicurezza adeguate o non rispettano i principi di trasparenza e
+                        correttezza nell’utilizzo dell’IA.
+                    </li>
+                </ul>
+            </div>
+            <a href="https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2025-09-23;132"
+                class="w3-button w3-round-large">clicca qui per maggiori informazioni</a>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Copyright AI -->
+    <div id="copyright" class="w3-card custom-card w3-padding-large w3-margin">
+        <h2 class="custom-accent"><b>IA e Diritto d'Autore</b></h2>
+
+        <div class="custom-section w3-padding w3-margin-bottom">
+            <h3><b>🇮🇹 Italia (L. 633/1941 modificata)</b></h3>
+            <p class="w3-justify">Tutela le opere dell'ingegno con apporto umano significativo. Modifiche
+                recenti riconoscono le opere create con IA.</p>
+
+            <h4><b>Novità legislative:</b></h4>
+            <ul class="w3-ul custom-list">
+                <li>Tutela per opere create "con l'ausilio di strumenti di IA"</li>
+                <li>Riconoscimento dell'autore umano come "regista creativo"</li>
+                <li>Protezione dei prompt complessi e originali</li>
+                <li>Tutela estesa a software e database</li>
+            </ul>
+
+            <div class="w3-panel w3-pale-green w3-leftbar w3-border-green">
+                <p><b>Approccio inclusivo:</b> La normativa italiana valorizza la capacità dell'individuo di
+                    dirigere e guidare l'IA come strumento al servizio della creatività umana.</p>
+            </div>
+
+            <p><b>Requisiti per la tutela:</b></p>
+            <ul class="custom-list">
+                <li>L'apporto dell'autore deve essere determinante</li>
+                <li>Interventi marginali non sono sufficienti</li>
+                <li>Prompt complessi possono essere protetti come opere letterarie</li>
+            </ul>
+        </div>
+
+        <div class="custom-section w3-padding w3-margin-bottom">
+            <h3><b>🇺🇸 Stati Uniti</b></h3>
+            <p class="w3-justify">Il Copyright Office adotta una posizione restrittiva: le opere create da
+                IA non possono essere protette, salvo contributo creativo umano rilevante.</p>
+
+            <div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
+                <h4><b>Caso emblematico: Jason M. Allen vs. Copyright Office</b></h4>
+                <img style="width: 300px;"
+                    src="https://images.squarespace-cdn.com/content/v1/631ac028bb0573377cd15d89/d1e9a5b4-0fa4-42c1-9179-34bd4eb47bff/SOT1_lr.jpg">
+                <p><b>Opera:</b> "Théâtre d'Opéra Spatial"</p>
+                <p><b>Strumenti:</b> MidJourney + Photoshop</p>
+                <p><b>Esito:</b> Diritto d'autore negato</p>
+            </div>
+
+            <h4><b>Punti critici emersi:</b></h4>
+            <ul class="w3-ul custom-list">
+                <li><b>Trasparenza:</b> Obbligo di dichiarare l'uso dell'IA in fase di registrazione</li>
+                <li><b>Contributo umano:</b> Il ritocco post-produzione non compensa l'assenza di creatività
+                    iniziale</li>
+                <li><b>Criteri oggettivi:</b> Mancanza di standard per valutare l'apporto umano</li>
+            </ul>
+
+            <h4><b>Differenze USA-Europa:</b></h4>
+            <p class="w3-justify">In Italia l'opera di Allen avrebbe potuto ottenere tutela se l'intervento
+                umano fosse giudicato significativo. Il panorama legale internazionale resta frammentato e
+                complesso.</p>
+        </div>
+    </div>
+
+    <div id="copyright" class="w3-card custom-card w3-padding-large w3-margin">
+        <h4><b>IL PROBLEMA DELLA SCATOLA NERA</b></h4>
+        <p class="w3-justify">Uno dei rischi più importanti dell' IA moderna è la sua opacità. Molti algoritmi,
+            soprattutto quelli
+            basati su reti neurali profonde prendono decisioni attraverso milioni o miliardi di parametri che
+            interagiscono tra loro. Il risultato è che non è possibile capire con precisione come l'algoritmo sia
+            arrivato a una certa conclusione. </p>
+
+        <h4><b>perché è un problema?</b></h4>
+        <p class="w3-justify">Un IA, puoi rifiutare un mutuo, segnalare una persona come "a rischio" o decidere chi
+            chiamare
+            per un colloquio di lavoro, ma nessuno, nemmeno i programmatori, può spiegare perché quella la decisione sia
+            stata presa. La persona coinvolta non può contestarla correggere eventuali errori o discriminazioni. Questo
+            rende difficile individuare i bias, errori o criteri ingiusti.</p>
+
+        <h4><b>IL GDRP europeo - Art 22</b></h4>
+        <p class="w3-justify">stabilisce il diritto dell'utente ricevere informazioni sui fattori che hanno portato a una decisione
+            automatizzata, soprattutto se con la decisione un impatto significativo sulla vita delle persone, come
+            un'assicurazione o mutuo o un'assunzione.</p>
     </div>
 
     <footer class="w3-container w3-padding w3-light-blue w3-round">
