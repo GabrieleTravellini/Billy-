@@ -10,6 +10,8 @@ body {
     min-height: 100vh;
     padding: 40px 20px;
     color: #3d2921;
+    margin: 0;
+    padding: 0;
 }
 
 a.button-img-col {
