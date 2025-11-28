@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branching Robotica ed Etica</title>
+
+    <style>
+        /* ===================== Body e tipografia ===================== */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            color: #1a1a1a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.4px;
+        }
+
+        main {
+            max-width: 1000px;
+            width: 100%;
+            padding: 50px 40px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            animation: fadeInDown 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        /* ===================== Animazioni ===================== */
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ===================== Skill Tree Container ===================== */
+        #tree-container {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            margin-bottom: 50px;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+            opacity: 0;
+            min-height: 600px;
+        }
+
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ===================== Node Box ===================== */
+        .node-container {
+            text-align: center;
+            animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .node-box {
+            background-color: #f5d1b2;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+            .node-box:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            }
+
+        .node-image {
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .node-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #1a1a1a;
+            margin: 20px 0;
+        }
+
+        /* ===================== Diamond Choices ===================== */
+        .choices-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .diamond-choice {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #ea7a57, #f6a24c);
+            border: none;
+            border-radius: 0;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 6px 20px rgba(234, 122, 87, 0.3);
+            animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .diamond-choice:hover {
+                transform: scale(1.15) translateY(-5px);
+                box-shadow: 0 12px 35px rgba(234, 122, 87, 0.45);
+            }
+
+            .diamond-choice:active {
+                transform: scale(1.1);
+            }
+
+        /* ===================== Connection Line ===================== */
+        .connection-line {
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(180deg, rgba(234, 122, 87, 0.4), transparent);
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px;
+            animation: slideDown 0.6s ease-out forwards;
+        }
+
+        /* ===================== End Screen ===================== */
+        .end-screen {
+            text-align: center;
+            animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .end-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #1a1a1a;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* ===================== Buttons ===================== */
+        .restart-button {
+            margin: 40px auto 0;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 500;
+            border: 1.5px solid #ea7a57;
+            border-radius: 12px;
+            background: rgba(234, 122, 87, 0.15);
+            color: #ea7a57;
+            cursor: pointer;
+            display: block;
+            width: fit-content;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.3px;
+        }
+
+            .restart-button:hover {
+                background: rgba(234, 122, 87, 0.25);
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(234, 122, 87, 0.2);
+            }
+
+        /* ===================== Responsive ===================== */
+        @media (max-width: 768px) {
+            main {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            #tree-container {
+                gap: 60px;
+                min-height: 400px;
+            }
+
+            .choices-row {
+                gap: 20px;
+            }
+
+            .diamond-choice {
+                width: 100px;
+                height: 100px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Vivere con i Robot - Scelte Etiche</h1>
+        <div id="tree-container"></div>
+
+        <script>
+            const treeData = {
+                "start": {
+                    text: "Sei un cittadino del futuro in cui i robot sono parte della vita quotidiana. Ti viene consegnato un robot domestico avanzato. Cosa fai?",
+                    image: "imm2.png",
+                    children: [
+                        { text: "Amico", nextId: "friend" },
+                        { text: "Strumento", nextId: "tool" }
+                    ]
+                },
+                "friend": {
+                    text: "Il robot risponde ai tuoi stimoli emotivi e sembra capire i tuoi stati d'animo. Cosa scegli di fare?",
+                    image: "imm1.png",
+                    children: [
+                        { text: "Condividi emozioni", nextId: "emotional" },
+                        { text: "Mantieni distanza", nextId: "companionship" }
+                    ]
+                },
+                "tool": {
+                    text: "Usi il robot solo per compiti pratici. Come lo utilizzi?",
+                    image: "imm6.png",
+                    children: [
+                        { text: "Comportamenti sociali", nextId: "programmed" },
+                        { text: "Freddo e funzionale", nextId: "cold" }
+                    ]
+                },
+                "emotional": {
+                    text: "Le emozioni del robot sembrano reali. Inizi a sentirti legato a lui come a un vero amico. Continuare a trattarlo come amico può creare confusione emotiva e dipendenza. Cosa fai?",
+                    image: "imm3.png",
+                    children: [
+                        { text: "Continui amicizia", nextId: "risk" },
+                        { text: "Rifletti e limiti", nextId: "balanced" }
+                    ]
+                },
+                "companionship": {
+                    text: "Il robot ti accompagna in alcune attività quotidiane senza creare legami profondi. Mantieni l'equilibrio tra umano e macchina.\n\nRiflessione finale: Scegliendo una compagnia moderata, mantieni un equilibrio tra utilità e presenza sociale del robot. Questo finale mostra come la tecnologia possa supportare il benessere umano senza sostituire le relazioni reali.",
+                    image: "imm6.png",
+                    children: []
+                },
+                "programmed": {
+                    text: "Il robot diventa molto realistico e interattivo. Alcune persone iniziano a legarsi emotivamente. Devi riflettere sulla responsabilità etica.\n\nRiflessione finale: Programmare un robot per essere più 'sociale' avvicina i confini tra macchina e persona e solleva questioni etiche sulla manipolazione emotiva.",
+                    image: "imm3.png",
+                    children: []
+                },
+                "cold": {
+                    text: "Il robot resta uno strumento. Sicurezza e chiarezza di ruolo, ma perdita di opportunità sociali e creative.\n\nRiflessione finale: Mantenere i robot come strumenti garantisce stabilità, ma limita l'evoluzione sociale e creativa della tecnologia.",
+                    image: "imm6.png",
+                    children: []
+                },
+                "risk": {
+                    text: "Conseguenze: rischio di confusione emotiva, dipendenza e critiche sociali. La responsabilità è tua.\n\nRiflessione finale: Dipendere emotivamente da robot simulati può creare isolamento sociale. La tecnologia non deve sostituire i legami umani.",
+                    image: "imm4.png",
+                    children: []
+                },
+                "balanced": {
+                    text: "Conseguenze: equilibrio emotivo e comprensione critica della tecnologia.\n\nRiflessione finale: Riconoscere che le emozioni del robot sono simulate permette di convivere con la tecnologia senza perdere identità e lucidità.",
+                    image: "image5.jpg",
+                    children: []
+                }
+            };
+
+            let currentPath = [];
+
+            function renderTree(nodeId) {
+                const container = document.getElementById("tree-container");
+                const node = treeData[nodeId];
+
+                if (!node) return;
+
+                currentPath.push(nodeId);
+                container.innerHTML = "";
+
+                // Render all nodes in the current path
+                currentPath.forEach((id, index) => {
+                    const pathNode = treeData[id];
+                    const level = document.createElement("div");
+                    level.className = "tree-level";
+                    level.style.position = "relative";
+
+                    const nodeDiv = document.createElement("div");
+                    nodeDiv.className = "node-container";
+
+                    const nodeBox = document.createElement("div");
+                    nodeBox.className = "node-box";
+
+                    const img = document.createElement("img");
+                    img.src = pathNode.image;
+                    img.className = "node-image";
+
+                    const text = document.createElement("div");
+                    text.className = "node-text";
+                    text.textContent = pathNode.text;
+
+                    nodeBox.appendChild(img);
+                    nodeBox.appendChild(text);
+                    nodeDiv.appendChild(nodeBox);
+
+                    // Add connection line if not first node
+                    if (index > 0) {
+                        const line = document.createElement("div");
+                        line.className = "connection-line";
+                        nodeDiv.appendChild(line);
+                    }
+
+                    level.appendChild(nodeDiv);
+                    container.appendChild(level);
+                });
+
+                // Render choices if available
+                if (node.children.length > 0) {
+                    const choicesLevel = document.createElement("div");
+                    choicesLevel.className = "tree-level";
+
+                    const choicesRow = document.createElement("div");
+                    choicesRow.className = "choices-row";
+
+                    node.children.forEach(choice => {
+                        const btn = document.createElement("button");
+                        btn.className = "diamond-choice";
+                        btn.textContent = choice.text;
+                        btn.onclick = () => {
+                            container.style.scrollBehavior = "smooth";
+                            renderTree(choice.nextId);
+                        };
+                        choicesRow.appendChild(btn);
+                    });
+
+                    choicesLevel.appendChild(choicesRow);
+                    container.appendChild(choicesLevel);
+                } else {
+                    // Show end screen
+                    const endLevel = document.createElement("div");
+                    endLevel.className = "tree-level";
+
+                    const endScreen = document.createElement("div");
+                    endScreen.className = "end-screen";
+
+                    const endText = document.createElement("div");
+                    endText.className = "end-text";
+                    endText.textContent = "Fine del percorso";
+
+                    const restartBtn = document.createElement("button");
+                    restartBtn.className = "restart-button";
+                    restartBtn.textContent = "Ricomincia";
+                    restartBtn.onclick = () => {
+                        currentPath = [];
+                        renderTree("start");
+                    };
+
+                    endScreen.appendChild(endText);
+                    endScreen.appendChild(restartBtn);
+                    endLevel.appendChild(endScreen);
+                    container.appendChild(endLevel);
+                }
+
+                // Scroll to bottom
+                setTimeout(() => {
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                }, 100);
+            }
+
+            // Initialize
+            renderTree("start");
+        </script>
+
+    </main>
+</body>
+</html>
