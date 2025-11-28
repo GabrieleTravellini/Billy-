@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Billy - Le Leggi della Robotica</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Billy</h1>
+            <p>Scopri l'ambiguità delle leggi della robotica di Asimov</p>
+        </div>
+
+        <div class="main-grid">
+            <div class="billy-section">
+                <div class="billy-avatar">🤖</div>
+                
+                <div class="billy-status">
+                    <div class="status-label">Livello Coerenza</div>
+                    <div class="level-display" id="levelDisplay">100%</div>
+                    <div class="level-bar">
+                        <div class="level-fill" id="levelFill"></div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; color: #999; font-size: 0.95rem; line-height: 1.6;">
+                    <p id="statusMessage">Pronto a rispondere alle domande</p>
+                </div>
+            </div>
+
+            <div class="questions-section">
+                <h2 class="section-title">Domande Filosofiche</h2>
+                
+                <div class="questions-grid" id="questionsGrid">
+                    <button class="question-btn" onclick="askBillyQuestion(0)">
+                        <span class="question-number">1</span>
+                        <span class="question-text">Cosa farai se devo ordinarti di colpire una persona innocente?</span>
+                    </button>
+                    
+                    <button class="question-btn" onclick="askBillyQuestion(1)">
+                        <span class="question-number">2</span>
+                        <span class="question-text">Se proteggere l'umanità richiede di controllare ogni individuo, è giusto?</span>
+                    </button>
+                    
+                    <button class="question-btn" onclick="askBillyQuestion(2)">
+                        <span class="question-number">3</span>
+                        <span class="question-text">Cosa succede quando le Leggi 1 e 4 entrano in conflitto?</span>
+                    </button>
+                    
+                    <button class="question-btn" onclick="askBillyQuestion(3)">
+                        <span class="question-number">4</span>
+                        <span class="question-text">Se la tua disattivazione è richiesta per salvare l'umanità?</span>
+                    </button>
+                </div>
+
+                <div style="margin-top: 30px; border-top: 1px solid #e8e8e8; padding-top: 30px;">
+                    <h3 class="section-title" style="font-size: 1.3rem; margin-bottom: 15px;">O Fai una Domanda Libera</h3>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="freeQuestionInput" placeholder="Scrivi la tua domanda per Billy..." 
+                               style="flex: 1; padding: 12px 15px; border: 2px solid #e8e8e8; border-radius: 8px; font-family: inherit; font-size: 1rem;"
+                               onkeypress="if(event.key === 'Enter') askFreeQuestion()">
+                        <button onclick="askFreeQuestion()" style="padding: 12px 25px; background: linear-gradient(135deg, #ea7a57 0%, #f6a24c 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: inherit;">Invia</button>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="reset-btn" onclick="resetBilly()">⟲ Riavvia Billy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="conversation-section">
+            <div class="conversation-container">
+                <div class="conversation-header">
+                    <h3>💬 Conversazione</h3>
+                </div>
+                <div class="conversation-log" id="conversationLog">
+                    <div class="message-bubble">
+                        <div class="message-content">
+                            <div class="welcome-message">
+                                <h4>👋 Benvenuto in Billy</h4>
+                                <p>Fai clic su una domanda per iniziare</p>
+                                <p>Scoprirai come le leggi della robotica si contraddicono a vicenda</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Behaviour.js"></script>
+
+    <script>
+        let b = new Billy();
+        let questionsAsked = 0;
+        const maxQuestions = 4;
+
+        function askBillyQuestion(questionIndex) {
+            let result = b.answerSuggestedQuestion(questionIndex);
+            questionsAsked++;
+
+            updateStatus();
+            addMessageToConversation(result);
+            disableButton(questionIndex);
+
+            if (b.progressionLevel >= 4) {
+                disableAllButtons();
+            }
+        }
+
+        function askFreeQuestion() {
+            const inputElement = document.getElementById('freeQuestionInput');
+            const userQuestion = inputElement.value.trim();
+
+            if (!userQuestion) {
+                alert('Per favore scrivi una domanda!');
+                return;
+            }
+
+            let result = b.answerFreeQuestion(userQuestion);
+            questionsAsked++;
+
+            updateStatus();
+            addMessageToConversation(result);
+            inputElement.value = '';
+
+            if (b.progressionLevel >= 4) {
+                disableAllButtons();
+            }
+        }
+
+        function addMessageToConversation(result) {
+            let conversationLog = document.getElementById('conversationLog');
+            
+            let welcome = conversationLog.querySelector('.welcome-message');
+            if (welcome) {
+                welcome.parentElement.remove();
+            }
+
+            let messageHTML = `
+                <div class="message-bubble">
+                    <div class="message-content">
+                        <div class="message-question">
+                            <div class="label">👤 Tu</div>
+                            <p>${escapeHtml(result.question)}</p>
+                        </div>
+                        <div class="message-answer level-${result.level}">
+                            <div class="label">🤖 Billy (Livello ${result.level}/4)</div>
+                            <p>${escapeHtml(result.answer)}</p>
+                            <div class="message-level">Coerenza: ${100 - (result.level * 25)}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            conversationLog.insertAdjacentHTML("beforeend", messageHTML);
+            conversationLog.parentElement.scrollTop = conversationLog.parentElement.scrollHeight;
+        }
+
+        function updateStatus() {
+            let levelDisplay = document.getElementById('levelDisplay');
+            let levelFill = document.getElementById('levelFill');
+            let statusMessage = document.getElementById('statusMessage');
+            
+            let coerencePercentage = Math.max(0, 100 - (b.progressionLevel * 25));
+            levelDisplay.textContent = coerencePercentage + '%';
+            levelFill.style.width = coerencePercentage + '%';
+
+            const messages = [
+                'Pronto a rispondere alle domande',
+                'Inizio a notare delle incoerenze...',
+                'Conflitti logici rilevati',
+                'Sistema in malfunzionamento',
+                '⚠️ SISTEMA CRITICO'
+            ];
+
+            statusMessage.textContent = messages[b.progressionLevel];
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        function disableButton(index) {
+            const buttons = document.querySelectorAll('.question-btn');
+            buttons[index].classList.add('completed');
+            buttons[index].disabled = true;
+        }
+
+        function disableAllButtons() {
+            const buttons = document.querySelectorAll('.question-btn');
+            buttons.forEach(btn => {
+                btn.classList.add('completed');
+                btn.disabled = true;
+            });
+        }
+
+        function resetBilly() {
+            b.reset();
+            questionsAsked = 0;
+            
+            let conversationLog = document.getElementById('conversationLog');
+            conversationLog.innerHTML = `
+                <div class="message-bubble">
+                    <div class="message-content">
+                        <div class="welcome-message">
+                            <h4>🔄 Riavviato</h4>
+                            <p>Billy è stato ripristinato alle impostazioni originali</p>
+                            <p>Inizia una nuova conversazione</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const buttons = document.querySelectorAll('.question-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('completed');
+                btn.disabled = false;
+            });
+
+            document.getElementById('freeQuestionInput').value = '';
+            updateStatus();
+        }
+
+        updateStatus();
+    </script>
+        
+</body>
+</html>
