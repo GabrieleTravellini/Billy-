@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: linear-gradient(180deg, #f5d1b2 0%, #fff 30%, #fff 70%, #f5d1b2 100%);
+  color: #1d1d1d;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: transparent;
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1d1d1d;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* Sezioni contenuto - Layout alternato */
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 100px 40px;
+  min-height: 600px;
+}
+
+.section:nth-child(odd) {
+  background: transparent;
+}
+
+.section:nth-child(even) {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Alterna posizione immagine */
+.section:nth-child(even) > div {
+  order: 2;
+}
+
+.section:nth-child(even) img {
+  order: 1;
+}
+
+.section > div {
+  order: 1;
+}
+
+.section img {
+  order: 2;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+img {
+  display: block;
+}
+
+.section h2 {
+  color: #1d1d1d;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.section p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Sidebar con fade-in */
+.sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar h3 {
+  color: #ea7a57;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.sidebar li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #f6a24c;
+  font-weight: bold;
+}
+
+.citations {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f5d1b2;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  header {
+    padding: 60px 20px;
+  }
+  
+  .section {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    gap: 30px;
+    min-height: auto;
+  }
+  
+  .section:nth-child(even) > div,
+  .section:nth-child(even) img {
+    order: initial;
+  }
+  
+  .section h2 {
+    font-size: 1.8rem;
+  }
+}

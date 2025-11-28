@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>La società dal punto di vista dell'IA</title>
+    <link rel="stylesheet" href="bias_style.css">
+</head>
+
+<body>
+
+    <div class="top-navbar">
+        <a href="argomento1.html">Argomento1</a>
+        <a href="argomento2.html">Argomento2</a>
+        <a href="argomento3.html">Argomento3</a>
+        <a href="argomento4.html">Argomento4</a>
+        <a href="argomento5.html">Argomento5</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">IA e Società</a>
+            <nav>
+                <a href="#origini">Origini</a>
+                <a href="#casi">Casi Reali</a>
+                <a href="#settori">Settori</a>
+                <a href="#scatola">Scatola Nera</a>
+                <a href="#tram">Dilemma del Tram</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>La società dal punto di vista dell'IA</h1>
+        <p>Problemi decisionali, bias e discriminazione algoritmica</p>
+        <p id="author">Pagina fatta da Thomas Manzoni</p>
+    </section>
+
+    <!-- Contenuto -->
+    <div class="container">
+
+        <!-- Sezione 1: Origini -->
+        <section class="section" id="origini">
+            <div class="section-header">
+                <h2 class="section-title">Origine dei pregiudizi nei sistemi di IA</h2>
+                <p class="section-subtitle">Gli algoritmi imparano dai dati. Se quei dati contengono pregiudizi
+                    culturali o storici, l'IA li replica automaticamente.</p>
+            </div>
+
+            <div class="card">
+                <h3>Bias invisibili nei dataset</h3>
+                <img src="img/atomo.jpg" alt="Rappresentazione di un atomo reale" class="img-card">
+                <p>Il problema è che questi bias sono spesso invisibili, perché nascosti dentro enormi dataset
+                    impossibili da analizzare uno per uno. Gli algoritmi confondono correlazione storica e causalità
+                    legittima, replicando e amplificando discriminazioni del passato.</p>
+            </div>
+        </section>
+
+        <!-- Sezione 2: Casi Reali -->
+        <section class="section" id="casi">
+            <div class="section-header">
+                <div class="section-number">Sezione 01</div>
+                <h2 class="section-title">Casi reali di discriminazione algoritmica</h2>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Amazon e il reclutamento: il bias di genere</h4>
+                <img src="img/amazon.png" alt="Algoritmo di recruiting di Amazon con bias di genere" class="img-card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-content">
+                            <p>Amazon sviluppò un algoritmo per automatizzare il reclutamento. Poiché i dati storici
+                                mostravano una predominanza di assunzioni maschili, l'IA imparò a preferire i candidati
+                                uomini.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <p>L'azienda rilevò che le candidature femminili venivano scartate fino al 30% in più.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-content">
+                            <p>Il progetto fu abbandonato perché il bias non era correggibile.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>COMPAS: la giustizia artificiale che discrimina per razza</h4>
+                <img src="img/compas.png" alt="Sistema COMPAS e discriminazione razziale nella giustizia"
+                    class="img-card">
+                <p>COMPAS, usato nelle corti americane per stimare il rischio di recidiva, classificava come "ad alto
+                    rischio" gli imputati neri con probabilità doppia rispetto ai bianchi.</p>
+                <p>Il problema non era l'algoritmo, ma i dati giudiziari storici, già segnati
+                    da forti discriminazioni.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label">Imputati neri classificati ad alto rischio (falsi positivi)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23%</div>
+                    <div class="stat-label">Imputati bianchi classificati ad alto rischio</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione 3: Settori Sensibili -->
+        <section class="section" id="settori">
+            <div class="section-header">
+                <div class="section-number">Sezione 02</div>
+                <h2 class="section-title">Bias nei settori più sensibili</h2>
+            </div>
+
+            <h3>Sanità e diagnosi mediche</h3>
+            <p>Il bias in medicina è particolarmente pericoloso perché incide sulla salute. Esempi reali mostrano:</p>
+
+            <div class="two-column">
+                <div class="column-card">
+                    <h5>Diagnosi cardiache</h5>
+                    <p>Meno accurate per donne e minoranze</p>
+                </div>
+                <div class="column-card">
+                    <h5>Riconoscimento tumori</h5>
+                    <p>Meno precisi su pelle scura</p>
+                </div>
+                <div class="column-card">
+                    <h5>Saturimetri</h5>
+                    <p>Meno affidabili su persone con pelle scura</p>
+                </div>
+                <div class="column-card">
+                    <h5>Allocazione risorse</h5>
+                    <p>Penalizza pazienti neri usando metriche sbagliate</p>
+                </div>
+            </div>
+
+            <h3>Lavoro e accesso al credito</h3>
+            <p>Molti CV vengono filtrati automaticamente e gli istituti finanziari usano l'IA per valutare rischi e
+                affidabilità.</p>
+
+            <div class="highlight-box">
+                <h4>Selezione del personale</h4>
+                <ul class="apple-list">
+                    <li>3 aziende su 4 usano IA nei processi di selezione</li>
+                    <li>L'80% dei CV è filtrato da sistemi automatizzati</li>
+                    <li>Le donne hanno il 30% in meno di possibilità di superare le preselezioni</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Finanza e credito</h4>
+                <ul class="apple-list">
+                    <li>Le aziende guidate da donne accedono al credito con probabilità inferiore del 15–20%</li>
+                    <li>Le donne ricevono prestiti per un 25% in meno</li>
+                    <li>I sistemi di scoring replicano discriminazioni storiche</li>
+                </ul>
+            </div>
+
+            <div class="card card-gradient">
+                <h3>Il ciclo che si autoalimenta</h3>
+                <p><strong>Dati storici</strong> → donne considerate più "rischiose" → <strong>minore accesso al
+                        credito</strong> → <strong>nuovi dati che confermano il bias</strong> → il ciclo ricomincia</p>
+            </div>
+        </section>
+
+        <!-- Sezione 4: Scatola Nera -->
+        <section class="section" id="scatola">
+            <div class="section-header">
+                <div class="section-number">Sezione 03</div>
+                <h2 class="section-title">Il problema della "scatola nera"</h2>
+                <p class="section-subtitle">Come possiamo fidarci di una decisione che non possiamo spiegare?</p>
+            </div>
+
+            <div class="card">
+                <h3>Opacità algoritmica</h3>
+                <img src="img/blackbox.png" alt="Rappresentazione della scatola nera dell'IA" class="img-large">
+                <p>Molti algoritmi — soprattutto quelli basati su reti neurali profonde — prendono decisioni attraverso
+                    milioni o miliardi di parametri che interagiscono tra loro. Il risultato è che <strong>non è
+                        possibile capire</strong> con precisione <em>come</em> l'algoritmo sia arrivato a una certa
+                    conclusione.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Perché è un problema</h4>
+                <ul class="apple-list">
+                    <li>Un'IA può rifiutare un mutuo, segnalare una persona come "a rischio", o decidere chi chiamare
+                        per un
+                        colloquio</li>
+                    <li>Ma se nessuno — nemmeno i programmatori — può spiegare <em>perché</em>, la persona non può
+                        contestare l'errore</li>
+                    <li>Rende difficile individuare bias, errori o criteri ingiusti</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sezione 5: Dilemma del Tram -->
+        <section class="section" id="tram">
+            <div class="section-header">
+                <div class="section-number">Sezione 04</div>
+                <h2 class="section-title">L'IA e il problema del tram</h2>
+                <p class="section-subtitle">Come ragiona un'IA di fronte a dilemmi morali?</p>
+            </div>
+
+            <div class="card">
+                <h3>Un'IA non decide "da sola" in senso morale</h3>
+                <img src="img/trolleyproblemjpg.jpg" alt="Rappresentazione del dilemma del tram" class="img-large">
+                <p>Un'IA ultra avanzata non avrebbe "una" risposta unica al dilemma del tram: il suo comportamento
+                    dipende da come è stata progettata dal punto di vista etico (utilitarismo, rispetto dei diritti,
+                    ecc.) e dai vincoli imposti dagli esseri umani. L'IA non decide <em>da sola</em> in senso morale
+                    umano, ma applica le funzioni di valore o le regole che i progettisti le hanno fornito.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Come ragiona un'IA sul tram</h4>
+
+                <div>
+                    <h5>Impostazione utilitarista</h5>
+                    <p>L'IA cerca di minimizzare il danno complessivo, quindi può deviare il tram per sacrificare una
+                        persona invece di cinque, se le informazioni sono complete e le probabilità note.</p>
+                </div>
+
+                <div>
+                    <h5>Impostazione deontologica</h5>
+                    <p>L'IA potrebbe essere programmata a non violare certi diritti, evitando di compiere azioni
+                        attivamente dannose, anche se ciò aumenta il numero di vittime.</p>
+                </div>
+
+                <div>
+                    <h5>Approccio ibrido</h5>
+                    <p>Combina regole invalicabili (non discriminare, non colpire intenzionalmente bambini, ecc.) con il
+                        calcolo delle conseguenze entro questi limiti, come alcune proposte per auto a guida autonoma.
+                    </p>
+                </div>
+            </div>
+
+            <h3>Comparazione delle cornici etiche</h3>
+            <div class="table-container">
+                <table class="ethics-table">
+                    <thead>
+                        <tr>
+                            <th>Cornice etica</th>
+                            <th>Cosa massimizza / protegge</th>
+                            <th>Mossa tipica nel tram</th>
+                            <th>Intuizione di base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Utilitarismo</td>
+                            <td>Somma del benessere / vite salvate</td>
+                            <td>Tira la leva, sacrifica 1 per salvarne 5</td>
+                            <td>Conta il risultato globale</td>
+                        </tr>
+                        <tr>
+                            <td>Deontologia</td>
+                            <td>Rispetto di diritti e doveri</td>
+                            <td>Non tira la leva, non uccide attivamente 1</td>
+                            <td>Alcune azioni sono vietate comunque</td>
+                        </tr>
+                        <tr>
+                            <td>Etica delle virtù</td>
+                            <td>Carattere e virtù dell'agente</td>
+                            <td>Decide come "persona virtuosa", valutando contesto e intenzioni</td>
+                            <td>Importa chi diventa chi agisce</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2025 - Thomas Manzoni - La Roboetica: i Bias Algoritmici</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
