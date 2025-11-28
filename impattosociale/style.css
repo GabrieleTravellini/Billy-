@@ -1,23 +1,21 @@
-
-        /* ===================== Body e tipografia ===================== */
+/* ===================== Body e tipografia ===================== */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
             color: #1a1a1a;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            padding: 0;
             min-height: 100vh;
             font-size: 16px;
             font-weight: 400;
             letter-spacing: 0.4px;
+            display: block; /* rimuovo flex per evitare spostamento main */
         }
-
+ 
         main {
             max-width: 1000px;
             width: 100%;
+            margin: 80px auto 0 auto; /* centrato e staccato dalla navbar */
             padding: 50px 40px;
             border-radius: 30px;
             background: rgba(255, 255, 255, 0.8);
@@ -25,7 +23,7 @@
             -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
-
+ 
         h1 {
             text-align: center;
             font-size: 48px;
@@ -36,56 +34,56 @@
             animation: fadeInDown 0.8s ease forwards;
             opacity: 0;
         }
-
+ 
         /* ===================== Animazioni ===================== */
         @keyframes fadeInDown {
             0% {
                 opacity: 0;
                 transform: translateY(-20px);
             }
-
+ 
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
+ 
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
-
+ 
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
+ 
         @keyframes slideDown {
             0% {
                 opacity: 0;
                 transform: translateY(-30px);
             }
-
+ 
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
+ 
         @keyframes scaleIn {
             0% {
                 opacity: 0;
                 transform: scale(0.8);
             }
-
+ 
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
         }
-
+ 
         /* ===================== Skill Tree Container ===================== */
         #tree-container {
             display: flex;
@@ -96,7 +94,7 @@
             opacity: 0;
             min-height: 600px;
         }
-
+ 
         .tree-level {
             display: flex;
             justify-content: center;
@@ -104,13 +102,13 @@
             flex-wrap: wrap;
             position: relative;
         }
-
+ 
         /* ===================== Node Box ===================== */
         .node-container {
             text-align: center;
             animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
+ 
         .node-box {
             background-color: #f5d1b2;
             border-radius: 20px;
@@ -120,12 +118,12 @@
             max-width: 350px;
             margin: 0 auto;
         }
-
+ 
             .node-box:hover {
                 transform: translateY(-8px);
                 box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             }
-
+ 
         .node-image {
             width: 100%;
             height: 220px;
@@ -134,14 +132,14 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
-
+ 
         .node-text {
             font-size: 16px;
             line-height: 1.8;
             color: #1a1a1a;
             margin: 20px 0;
         }
-
+ 
         /* ===================== Diamond Choices ===================== */
         .choices-row {
             display: flex;
@@ -150,7 +148,7 @@
             margin-top: 60px;
             flex-wrap: wrap;
         }
-
+ 
         .diamond-choice {
             width: 120px;
             height: 120px;
@@ -171,16 +169,16 @@
             box-shadow: 0 6px 20px rgba(234, 122, 87, 0.3);
             animation: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
+ 
             .diamond-choice:hover {
                 transform: scale(1.15) translateY(-5px);
                 box-shadow: 0 12px 35px rgba(234, 122, 87, 0.45);
             }
-
+ 
             .diamond-choice:active {
                 transform: scale(1.1);
             }
-
+ 
         /* ===================== Connection Line ===================== */
         .connection-line {
             position: absolute;
@@ -192,13 +190,13 @@
             top: -60px;
             animation: slideDown 0.6s ease-out forwards;
         }
-
+ 
         /* ===================== End Screen ===================== */
         .end-screen {
             text-align: center;
             animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
+ 
         .end-text {
             font-size: 18px;
             line-height: 1.8;
@@ -207,7 +205,7 @@
             font-style: italic;
             color: #666;
         }
-
+ 
         /* ===================== Buttons ===================== */
         .restart-button {
             margin: 40px auto 0;
@@ -224,33 +222,33 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             letter-spacing: 0.3px;
         }
-
+ 
             .restart-button:hover {
                 background: rgba(234, 122, 87, 0.25);
                 transform: translateY(-3px);
                 box-shadow: 0 6px 16px rgba(234, 122, 87, 0.2);
             }
-
+ 
         /* ===================== Responsive ===================== */
         @media (max-width: 768px) {
             main {
                 padding: 30px 20px;
             }
-
+ 
             h1 {
                 font-size: 36px;
                 margin-bottom: 40px;
             }
-
+ 
             #tree-container {
                 gap: 60px;
                 min-height: 400px;
             }
-
+ 
             .choices-row {
                 gap: 20px;
             }
-
+ 
             .diamond-choice {
                 width: 100px;
                 height: 100px;
@@ -262,7 +260,7 @@
     font-size: 18px;
     font-weight: bold;
 }
-
+ 
 .navbar-right a {
     color: #f5d1b2;
     text-decoration: none;
@@ -272,13 +270,18 @@
     transition: all 0.3s ease;
     font-weight: bold;
 }
-
+ 
 .navbar-right a:hover {
     background-color: #d9d3ca;
     color: #ea7a57;
 }
-
+ 
 .top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-width: 100vw;
     background: linear-gradient(90deg, #ea7a57, #f6a24c);
     padding: 12px 20px;
     display: flex;
@@ -286,34 +289,39 @@
     align-items: center;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     font-family: Arial, sans-serif;
+    z-index: 1000;
 }
-
+ 
 .navbar-left {
     display: flex;
     align-items: center;
 }
-
+ 
 .logo {
     height: 40px;
     width: auto;
     margin-right: 12px;
     border-radius: 12px 
 }
-
+ 
 footer {
     background: #f5f5f7;
     padding: 20px 0;
-    margin-top: 100px;
     border-top: 1px solid #d2d2d7;
     text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
 }
-
+ 
 .footer-bottom {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 22px;
 }
-
+ 
 .footer-bottom p {
     font-size: 12px;
     color: #6e6e73;
