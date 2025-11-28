@@ -12,6 +12,12 @@ body {
     color: #3d2921;
 }
 
+a.button-img-col {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
