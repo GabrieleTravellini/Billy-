@@ -24,6 +24,11 @@ body {
     animation: fadeInDown 0.8s ease-out;
 }
 
+.header img {
+    height: 10vh;
+    border-radius: 10px;
+}
+
 .header h1 {
     font-size: 3.5rem;
     font-weight: 700;
@@ -35,7 +40,8 @@ body {
     background-clip: text;
 }
 
-.header p, .subtitle {
+.header p,
+.subtitle {
     font-size: 1.2rem;
     color: #8b5a3c;
     font-weight: 300;
@@ -106,12 +112,14 @@ body {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .half-buttons-row {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .half-btn {
@@ -155,7 +163,17 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 280px;
+    height: 220px;
+    justify-content: center;
 }
+
+.button-img-col.w3-card-4.wide-box {
+    width: 580px;
+    height: 220px;
+    align-self: center;
+}
+
 
 .img-btn {
     background: none;
@@ -166,7 +184,8 @@ body {
     transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.img-btn:focus, .img-btn:hover {
+.img-btn:focus,
+.img-btn:hover {
     box-shadow: 0 4px 16px rgba(234, 122, 87, 0.18);
     transform: scale(1.04);
 }
@@ -230,6 +249,23 @@ body {
     letter-spacing: 0.5px;
 }
 
+.authors-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.authors-list li {
+    color: white;
+}
+
+
 @media (max-width: 1024px) {
     .header h1 {
         font-size: 2.5rem;
@@ -240,20 +276,25 @@ body {
     .buttons-column {
         max-width: 100%;
     }
+
     .half-buttons-row {
         flex-direction: column;
         gap: 10px;
     }
+
     .full-btn {
         margin-top: 10px;
     }
+
     .btn-img {
         width: 100px;
         height: 60px;
     }
+
     .sopratitolo-section.w3-card-4 {
         padding: 16px 6px;
     }
+
     .button-img-col.w3-card-4 {
         padding: 10px 4px 6px 4px;
     }
@@ -264,10 +305,9 @@ body {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-
